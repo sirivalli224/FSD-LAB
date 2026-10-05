@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather App</title>
+<style>
+body{font-family:Arial;background:#171717;color:white;text-align:center;padding:25px}
+select,button{padding:12px;border:0;border-radius:6px;margin:5px}
+select{width:250px}
+button{background:#e11d48;color:white}
+#weather{background:#292524;padding:20px;border-radius:12px;margin:auto;max-width:850px}
+#temp{font-size:45px;color:#fb7185}
+.details{display:flex;justify-content:center;gap:50px;margin:20px}
+.forecast{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.card{background:#44403c;padding:12px;border-radius:8px}
+.card b{color:#fb7185}
+@media(max-width:700px){.forecast{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+
+<body>
+
+<h1>🌤️ Weather App</h1>
+
+<select id="city">
+<option value="">Select City</option>
+<option>Hyderabad</option>
+<option>Bengaluru</option>
+<option>Chennai</option>
+<option>Mumbai</option>
+<option>Delhi</option>
+<option>Vijayawada</option>
+</select>
+
+<button onclick="getWeather()">Get Weather</button>
+<p id="msg"></p>
+
+<div id="weather" style="display:none">
+<h2 id="location"></h2>
+<div id="temp"></div>
+<p id="desc"></p>
+
+<div class="details">
+<p>💧 Humidity<br><b id="hum"></b>%</p>
+<p>💨 Wind<br><b id="wind"></b> km/h</p>
+</div>
+
+<h2>5-Day Forecast</h2>
+<div class="forecast" id="forecast"></div>
+</div>
+
+<script>
+async function getWeather(){
+let city=document.getElementById("city").value;
+if(!city)return msg.innerText="Select a city";
+
+try{
+let g=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`);
+let p=(await g.json()).results[0];
+
+let u=`https://api.open-meteo.com/v1/forecast?latitude=${p.latitude}&longitude=${p.longitude}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=5&timezone=auto`;
+
+let d=await(await fetch(u)).json();
+
+location.innerText=p.name+", "+p.country;
+temp.innerText=Math.round(d.current.temperature_2m)+"°C";
+desc.innerText=w(d.current.weather_code);
+hum.innerText=d.current.relative_humidity_2m;
+wind.innerText=d.current.wind_speed_10m;
+
+forecast.innerHTML=d.daily.time.map((x,i)=>`
+<div class="card">
+<b>${day(x)}</b>
+<p>${w(d.daily.weather_code[i])}</p>
+<p><b>${Math.round(d.daily.temperature_2m_max[i])}°C</b></p>
+<p>Min: ${Math.round(d.daily.temperature_2m_min[i])}°C</p>
+</div>`).join("");
+
+weather.style.display="block";
+msg.innerText="";
+}catch(e){msg.innerText="Unable to get weather"}
+}
+
+function day(x){
+return new Date(x).toLocaleDateString("en-US",{weekday:"short"});
+}
+
+function w(c){
+return {0:"Clear",1:"Mostly Clear",2:"Cloudy",3:"Overcast",
+45:"Fog",51:"Drizzle",61:"Rain",63:"Rain",65:"Heavy Rain",
+71:"Snow",80:"Rain Shower",95:"Thunderstorm"}[c]||"Unknown";
+}
+</script>
+
+</body>
+</html>
