@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Travel Diaries</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="#">Travel Diaries 🌍</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Travel Tips</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1 class="display-4 fw-bold">Explore the World</h1>
+            <p class="lead mb-4">Discover Amazing Destinations<br>One Journey at a Time.</p>
+            <a href="#" class="btn btn-success btn-lg">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+
+            <!-- Destination Cards -->
+            <div class="col-lg-8">
+                <div class="row g-4">
+
+                    <div class="col-md-6">
+                        <div class="card shadow blog-card h-100">
+                            <img src="goa.png" class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-success me-1">Nature</span>
+                                <span class="badge bg-warning text-dark">Beach</span>
+                                <h4 class="card-title mt-3">📍 Goa</h4>
+                                <p class="card-text">Golden beaches, water sports, beautiful sunsets.</p>
+                                <a href="#" class="btn btn-success">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow blog-card h-100">
+                            <img src="manali.png" class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-success me-1">Adventure</span>
+                                <span class="badge bg-warning text-dark">Nature</span>
+                                <h4 class="card-title mt-3">📍 Manali</h4>
+                                <p class="card-text">Snow-covered mountains, adventure sports, peaceful valleys.</p>
+                                <a href="#" class="btn btn-success">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow blog-card h-100">
+                            <img src="jaipur.png" class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-secondary me-1">Heritage</span>
+                                <span class="badge bg-warning text-dark">Popular</span>
+                                <h4 class="card-title mt-3">📍 Jaipur</h4>
+                                <p class="card-text">Historic forts, royal palaces, vibrant culture.</p>
+                                <a href="#" class="btn btn-success">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card shadow blog-card h-100">
+                            <img src="kerala.png " class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-success me-1">Nature</span>
+                                <span class="badge bg-warning text-dark">Popular</span>
+                                <h4 class="card-title mt-3">📍 Kerala</h4>
+                                <p class="card-text">Backwaters, houseboats, lush greenery.</p>
+                                <a href="#" class="btn btn-success">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+
+                <div class="card shadow mb-4">
+                    <div class="card-header bg-primary text-white">Search</div>
+                    <div class="card-body">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </div>
+
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">Categories</div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Beaches</li>
+                        <li class="list-group-item">Mountains</li>
+                        <li class="list-group-item">Heritage</li>
+                        <li class="list-group-item">Wildlife</li>
+                        <li class="list-group-item">Adventure</li>
+                    </ul>
+                </div>
+
+                <div class="card shadow mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">✈️ Travel Tip</h5>
+                        <p class="card-text mb-0">Always carry a reusable water bottle and keep digital copies of important documents while travelling.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- About -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2>About Travel Diaries</h2>
+            <p class="lead">Travel Diaries is a simple travel blog where you can explore beautiful destinations, discover travel tips, and plan your next adventure.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Travel Diaries<br>Made with Bootstrap 5</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
